@@ -1,10 +1,10 @@
-package day001;
+package week001;
 
 import org.junit.Test;
 
-import static day001.Fibonacci.fibonacci;
-import static day001.Fibonacci.fibonacciRecursive;
-import static day001.Fibonacci.fibonacciStream;
+import static week001.Fibonacci.fibonacci;
+import static week001.Fibonacci.fibonacciRecursive;
+import static week001.Fibonacci.fibonacciStream;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class FibonacciTest {

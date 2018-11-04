@@ -1,4 +1,4 @@
-package day001;
+package week001;
 
 import java.util.stream.Stream;
 

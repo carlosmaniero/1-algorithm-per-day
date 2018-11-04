@@ -1,3 +1,5 @@
-# 1 Algorithm per day
+# 1 Algorithm per Week
 
-[001 - Fibonacci](./src/main/java/day001/)
+| Week | Subject                                               | Code                                                | Tests                                               |
+|------|-------------------------------------------------------|-----------------------------------------------------|-----------------------------------------------------|
+| 001  | [Fibonacci](./src/main/java/week001/)                 | [java](./src/main/java/week001/Fibonacci.java)      | [java](./src/test/java/week001/FibonacciTest.java)  |
