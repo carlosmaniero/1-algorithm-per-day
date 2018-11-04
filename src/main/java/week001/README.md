@@ -1,8 +1,9 @@
 # Fibonacci
 
-I solved this problems in three different ways. The classical the recursive and using the Stream API.
+Let's solve this problems in three different ways. The classical the recursive and using the Stream API.
 
-As you all know, the fibonacci sequence starts with 0 and 1, where the next value should be the sum of the previous one.
+As you all know, the fibonacci sequence starts with 0 and 1, where the next value should be the sum of the two previous
+values.
 
     0 1 1 2 3 5 8 ...
 
@@ -28,14 +29,18 @@ public class Fibonacci {
 }
 ```
 
-To solve the problem in the classical way, you need to variables: one for the `previous` value and another one for the `current` value.
+The classical way, requires two variables: one for the `previous` value and another one for the `current` value. These
+variables could be initialized with `0` and `1`; the two first elements of the sequence.
+As the current value is `1`, a guard clause is needed, otherwise our code will behave inappropriately as we define the
+`current` variable as `1` and `fib(0) = 0`.
 
-I just started with the first values of the sequence `0` and `1`. As the current value is `1`, a guard clause is needed, otherwise the `n=0` would be `1` not `0`.
-
-The `for` loop starts with `i=1` because the first fibonacci number is already defined in the `current` variable. So basically what we need to do at the `for` block is to define the new `current` and `previous` value, where the `previous` should be the `current` and `current` should be the `current + previous`.
+The `for` loop starts with `i=1` because the first fibonacci number is already defined in place, at the `current`
+variable. So basically what we need to do at the `for` block is to define the new `current` and `previous` values,
+where the `previous` should be the `current` and `current` should be the `current + previous`.
 
 To avoid to have a temporary variable you can just define the current with `current + previous` and after that define
-the previous as `current - previous`. Because when `current` is `3` and `previous` is `2` then `current=3+2` and `previous=5-2`. 
+the previous as `current - previous`. Because when `current` is `3` and `previous` is `2` then `current=3+2` and
+`previous=5-2`.
 
 ## The recursive way
 
@@ -57,17 +62,18 @@ public class Fibonacci {
 
 ![Fibonacci Recursive](./Fibonacci%20Recursive.svg)
 
-The purple number is the `if` clause. That it means that always that zero or one is given for the fibonacci function, 
-it will return the same number. This default values are called `base cases` that prevents the function to run forever.
+The number represented purple above is the `if` clause return. That it means that always that zero or one were given
+for the fibonacci function, it will return the same number. This default values are called `base cases` that prevents
+the function to call itself forever.
 
 ## Fibonacci using Stream API
 
-Personally, the classical way has some kind of mutations that makes the code hard to understand. Even when we just have
-two variables changing. The recursive way is the one who best describes what fibonacci is in terms of code, but it is
-really slow. As you can see above, to discovery `fib(5)` we need to discovery `fib(4)` and `fib(3)` and to
+Personally, the classical way has some kind of mutations that makes the code hard to understand to me - even when we
+have just two variables changing. The recursive way is the one who best describes what fibonacci is in terms of code,
+but it is really slow. As you can see above, to discovery `fib(5)` we need to discovery `fib(4)` and `fib(3)` and to
 discovery `fib(4)` we need to discovery `fib(3)` again. So `fib(3)` is processed twice.
 
-To solve this problem using streams, I first started creating a representation to our fibonacci pairs.
+To solve this problem using streams, I first started creating a representation to our fibonacci sequence.
 
 ```java
 public static class FibonacciSequence {
@@ -93,7 +99,7 @@ public static class FibonacciSequence {
 }
 ```
 
-So `fib(1)` is equals to `FibonacciSequence.initialSequence().getValue())`, `fib(2)` is equals to 
+So `fib(1)` is equals to `FibonacciSequence.initialSequence().getValue())`, `fib(2)` is equals to
 `FibonacciSequence.initialSequence().getNext().getValue())`. So let's see how our function looks like:
 
 ```java
@@ -114,6 +120,6 @@ public class Fibonacci {
 
 ![Fibonacci Stream](./Fibonacci%20Stream.svg)
 
-As the classic way our sequence starts with `1`, it means that we also need the guard clause for zero. The 
+As the classic way our sequence starts with `1`, it means that we also need the guard clause for zero. The
 `Stream.iterate` will get the initial value and will `call` the given function at the second argument. That means that
 for each iteration it will call the `.getNext()` and store the returned value.
