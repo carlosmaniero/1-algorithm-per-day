@@ -1,3 +1,3 @@
 # 1 Algorithm per day
 
-[001 - Fibonacci](./main/java/day001)
+[001 - Fibonacci](./src/main/java/day001/)
