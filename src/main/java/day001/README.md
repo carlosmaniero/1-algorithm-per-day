@@ -55,7 +55,7 @@ public class Fibonacci {
 
 ### How is it evaluated?
 
-![Fibonacci Recurcive](./Fibonacci%20Recursive.svg)
+![Fibonacci Recursive](./Fibonacci%20Recursive.svg)
 
 The purple number is the `if` clause. That it means that always that zero or one is given for the fibonacci function, 
 it will return the same number. This default values are called `base cases` that prevents the function to run forever.
@@ -110,6 +110,9 @@ public class Fibonacci {
     }
 }
 ```
+### How is it evaluated?
+
+![Fibonacci Stream](./Fibonacci%20Stream.svg)
 
 As the classic way our sequence starts with `1`, it means that we also need the guard clause for zero. The 
 `Stream.iterate` will get the initial value and will `call` the given function at the second argument. That means that
